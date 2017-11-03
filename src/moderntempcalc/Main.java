@@ -16,13 +16,13 @@ import javafx.stage.Stage;
  *
  * @author nick
  */
-public class ModernTempCalc extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("WelcomeScene.fxml"));
         stage.setTitle("tempCalc");
-        stage.getIcons().add(new Image(ModernTempCalc.class.getResourceAsStream("thermo.png")));
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("thermo.png")));
 
         Scene scene = new Scene(root);
 
