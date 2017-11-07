@@ -5,7 +5,9 @@
  */
 package moderntempcalc;
 
+import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,6 +26,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 /**
@@ -54,33 +57,40 @@ public class WelcomeSceneController implements Initializable {
     //temperature logic here
     public static char userTempType = 'C';
     
-    
-    public Stage popup = new Stage();                  
-    Parent root;
-    
+    public static Stage popup = new Stage(StageStyle.UNDECORATED);
+            
 
+                     
+    public static void popupWindow (String input) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(WelcomeSceneController.class.getResource("PopupScene.fxml"));
+        Parent root = loader.load();
+        popup.setScene(new Scene(root));
+        popup.setTitle("tempCalc Results");
+        
+        
+        
+        if (input.equals("start")) {
+
+        popup.showAndWait();
+    }
+        else {
+            popup.close();
+        }
+    
+}
     
     @FXML
-    private void resultPopupButton (ActionEvent event) throws IOException {
+    public void calculateAndStartPopup (ActionEvent event) throws IOException {
         
         String userInput = userInputField.getText();
         
         CalculateTemp.setResult(userInput);
         
-        root = FXMLLoader.load(getClass().getResource("PopupScene.fxml"));
-
-        popup.setScene(new Scene(root));
-        popup.initModality(Modality.APPLICATION_MODAL);
-        popup.setTitle("tempCalc Results");
+        WelcomeSceneController.popupWindow("start");
         
-
-        popup.showAndWait();
-            
-            
     }
    
-    
-
     @FXML
     private void setConvertToC(ActionEvent event) {
         userTempType = 'C';

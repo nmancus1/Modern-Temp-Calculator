@@ -33,8 +33,8 @@
                 <DropShadow color="BLACK" offsetX="2.0" offsetY="2.0" />
             </effect>
           <children>
-            <Button fx:id="convertButton" layoutX="114.0" layoutY="111.0" mnemonicParsing="false" onAction="#resultPopupButton" style="-fx-background-color: #999999;" stylesheets="@material-fx-v0_3.css" text="Calculate" textAlignment="JUSTIFY" />
-            <TextField fx:id="userInputField" alignment="CENTER" layoutX="25.0" layoutY="60.0" onAction="#resultPopupButton" prefHeight="26.0" prefWidth="250.0" promptText="Enter Temp Here" stylesheets="@material-fx-v0_3.css" />
+            <Button fx:id="convertButton" layoutX="114.0" layoutY="111.0" mnemonicParsing="false" onAction="#calculateAndStartPopup" style="-fx-background-color: #999999;" stylesheets="@material-fx-v0_3.css" text="Calculate" textAlignment="JUSTIFY" />
+            <TextField fx:id="userInputField" alignment="CENTER" layoutX="25.0" layoutY="60.0" onAction="#calculateAndStartPopup" prefHeight="26.0" prefWidth="250.0" promptText="Enter Temp Here" stylesheets="@material-fx-v0_3.css" />
          </children></AnchorPane>
       <RadioButton fx:id="convertToCbutton" contentDisplay="RIGHT" layoutX="88.0" layoutY="255.0" mnemonicParsing="false" onAction="#setConvertToC" selected="true" stylesheets="@material-fx-v0_3.css" text="Convert to Celsius">
          <toggleGroup>

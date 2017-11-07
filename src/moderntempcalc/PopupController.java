@@ -5,6 +5,7 @@
  */
 package moderntempcalc;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -36,8 +37,9 @@ public class PopupController implements Initializable {
     }    
 
     @FXML
-    private void closePopupScene(ActionEvent event) {
-        WelcomeSceneController.popup.close();
+    public void closePopupScene(ActionEvent event) throws IOException {
+        WelcomeSceneController.popupWindow("close");
+        
     }
     
 }
