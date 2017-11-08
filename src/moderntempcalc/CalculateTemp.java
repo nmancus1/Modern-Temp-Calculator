@@ -12,19 +12,21 @@ package moderntempcalc;
 public class CalculateTemp {
     
     private static String result = "";
-    static Double userTemp;
-    static final char USER_TEMP_TYPE = WelcomeSceneController.userTempType;
-    static char tempTypeResult;
-    static double finalUserTemp;
+    
 
     
     public static void setResult (String userInput) {
+        
+    Double userTemp;
+    final char USER_TEMP_TYPE = WelcomeSceneController.userTempType;
+    char tempTypeResult = 'C';
+    double finalUserTemp = 0.0;
         
  
     try {
         userTemp = Double.parseDouble(userInput);
     } catch (java.lang.NumberFormatException e) { // if the user enters something that is not an integer
-        result = "Please enter only numbers";
+        result = "Please enter numbers only.";
         return;
         
     }
@@ -59,8 +61,5 @@ public class CalculateTemp {
         return result;
     }
 
-    public CalculateTemp() {
-        this.userTemp = 0.0;
-    }
-    
+   
 }
