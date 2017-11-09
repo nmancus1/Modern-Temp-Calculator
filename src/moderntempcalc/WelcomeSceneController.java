@@ -1,8 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+*@author Nick Mancuso
+*CIS-120 Final Program
+*/
 package moderntempcalc;
 import java.io.IOException;
 import java.net.URL;
@@ -23,16 +22,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 
-/**
- *
- * @author nick
- */
 public class WelcomeSceneController implements Initializable {
     
     
-    /*  Override fxml elements
-    *   
-    */
+    // Override fxml elements
+
     @FXML
     private ToggleGroup toggleGroup1;           //  Enables only one radio button to be activated at one time
     @FXML
@@ -45,24 +39,22 @@ public class WelcomeSceneController implements Initializable {
     private RadioButton convertToCbutton;       //  Button to designate Celsius conversion
     @FXML
     private RadioButton convertToFbutton;       //  Button to designate Fahrenheit conversion
+    
+    public static Stage popup = new Stage(StageStyle.UNDECORATED);              //  New stage object
+
           
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
     
-    
-    /*  Variables and program logic below
-    
-    */
-    
+        
     public static char userTempType = 'C';                                      //  This character sets the temperature type to convert to - used in 
-    public static Stage popup = new Stage(StageStyle.UNDECORATED);              //  New stage object
             
-
-                     
+    
     public static void popupWindow (String input) throws IOException {          //  Popup window method
         
-        FXMLLoader loader = new FXMLLoader(WelcomeSceneController.class.getResource("PopupScene.fxml"));    //  New FXML loader object
+        //setup popup window and construct new FXMLloader object
+        FXMLLoader loader = new FXMLLoader(WelcomeSceneController.class.getResource("PopupScene.fxml"));
         Parent root = loader.load();                                            //  Load FXML
         popup.setScene(new Scene(root));                                        //  New scene object
         popup.setTitle("tempCalc Results");                                     //  Set popup window title
@@ -81,9 +73,9 @@ public class WelcomeSceneController implements Initializable {
     @FXML
     public void calculateAndStartPopup (ActionEvent event) throws IOException { //  Fire popup and calculations
         
-        String userInput = userInputField.getText();
-        CalculateTemp.setResult(userInput,userTempType);
-        WelcomeSceneController.popupWindow("start");
+        String userInput = userInputField.getText();                            //  Parse input into userInput String
+        CalculateTemp.setResult(userInput,userTempType);                        //  Call CalculateTemp()
+        WelcomeSceneController.popupWindow("start");                            //  Call popupWindow()
         
     }
    
