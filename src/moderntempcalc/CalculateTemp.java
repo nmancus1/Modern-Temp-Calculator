@@ -1,3 +1,7 @@
+/*
+*@author Nick Mancuso
+*CIS-120 Final Program
+*/
 
 package moderntempcalc;
 
