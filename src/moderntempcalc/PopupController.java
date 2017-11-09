@@ -22,20 +22,21 @@ import javafx.scene.text.Text;
  */
 public class PopupController implements Initializable {
 
+    //  Overrides for FXML below
     @FXML
     private Text resultTextField;
     @FXML
     private Button thanksButton;
 
-    /**
-     * Initializes the controller class.
-     */
+    
+    //  Initialize result for popup window
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         resultTextField.setText(CalculateTemp.getResult());
     }    
 
+    //  Override to close popup window
     @FXML
     public void closePopupScene(ActionEvent event) throws IOException {
         WelcomeSceneController.popupWindow("close");

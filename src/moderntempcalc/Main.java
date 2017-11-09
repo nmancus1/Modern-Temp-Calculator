@@ -20,13 +20,12 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+       
+        //  Build WelcomeScene
         Parent root = FXMLLoader.load(getClass().getResource("WelcomeScene.fxml"));
-        stage.setTitle("tempCalc");
-        stage.getIcons().add(new Image(Main.class.getResourceAsStream("thermo.png")));
-
+        stage.setTitle("Material TempCalc");
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("color_therm1.png")));
         Scene scene = new Scene(root);
-
-        
         stage.setScene(scene);
         stage.show();
         

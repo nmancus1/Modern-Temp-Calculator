@@ -15,49 +15,53 @@ public class CalculateTemp {
     
 
     
-    public static void setResult (String userInput) {
+    public static void setResult (String userInput, char userTempType) {        //  Method to set result value, called from WelcomeScene
         
-    Double userTemp;
-    final char USER_TEMP_TYPE = WelcomeSceneController.userTempType;
-    char tempTypeResult = 'C';
-    double finalUserTemp = 0.0;
+        Double userTemp;                                                        //  Variable to store parsed user input
+        char resultTempType = 'C';                                              //  Variable to store the temp type of result
+        double resultUserTemp = 0.0;                                            //  Variable to store resulting temperature
         
- 
-    try {
-        userTemp = Double.parseDouble(userInput);
-    } catch (java.lang.NumberFormatException e) { // if the user enters something that is not an integer
-        result = "Please enter numbers only.";
-        return;
-        
-    }
     
-        switch (USER_TEMP_TYPE) {
+    //  Try - catch to grab incorrect user input
+        try {
+                userTemp = Double.parseDouble(userInput);                       //  Parses user input to a double
+            }
+         catch (java.lang.NumberFormatException e) {                            //  If the user enters something that is not an integer
+               result = "Please enter numbers only.";
+                return;
+         }
+    
+        
+    //  Conversion algorithm below
+        switch (userTempType) {
             
-            case 'C':   finalUserTemp = (userTemp-32)* 5/9;
+            case 'C':   resultUserTemp = (userTemp-32)* 5/9;                    // Convert C to F
                         break;
                         
-            case 'F':   finalUserTemp = userTemp * 9/5 +32;
+            case 'F':   resultUserTemp = userTemp * 9/5 +32;                    // Convert F to C
                         break;     
-                          
         }
         
+    //  Round result and input to two decimal places, for cleaner output
         userTemp = (double) Math.round(userTemp * 100) / 100;
-        finalUserTemp = (double) Math.round(finalUserTemp * 100) / 100;
+        resultUserTemp = (double) Math.round(resultUserTemp * 100) / 100;
 
         
-        if (USER_TEMP_TYPE == 'C') {
-            tempTypeResult = 'F'; 
+    //  Logic to display proper temp type
+        if (userTempType == 'C') {
+               resultTempType = 'F'; 
+            }
+            else {
+                resultTempType = 'C';
         }
-        else {
-            tempTypeResult = 'C';
-        }
         
-        
-        result = (userTemp + "°" + tempTypeResult + " equals " + finalUserTemp + "°" + USER_TEMP_TYPE);
-        
-    }
     
-    public static String getResult () {
+    //  Convert back to string and assign to result variable
+        result = (userTemp + "°" + resultTempType + " equals " + resultUserTemp + "°" + userTempType);
+        }
+    
+    
+    public static String getResult () {                                         //  Method to get result
         return result;
     }
 
