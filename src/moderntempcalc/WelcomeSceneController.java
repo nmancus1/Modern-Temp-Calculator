@@ -51,7 +51,7 @@ public class WelcomeSceneController implements Initializable {
     public static char userTempType = 'C';                                      //  This character sets the temperature type to convert to - used in 
             
     
-    public static void popupWindow (String input) throws IOException {          //  Popup window method
+    public static void popupWindow (Boolean start) throws IOException {          //  Popup window method
         
         //setup popup window and construct new FXMLloader object
         FXMLLoader loader = new FXMLLoader(WelcomeSceneController.class.getResource("PopupScene.fxml"));
@@ -61,7 +61,7 @@ public class WelcomeSceneController implements Initializable {
         
         
         //  Popup window controls
-        if (input.equals("start")) {                                
+        if (start == true) {                                
             popup.showAndWait();
     }
         else {
@@ -75,7 +75,7 @@ public class WelcomeSceneController implements Initializable {
         
         String userInput = userInputField.getText();                            //  Parse input into userInput String
         CalculateTemp.setResult(userInput,userTempType);                        //  Call CalculateTemp()
-        WelcomeSceneController.popupWindow("start");                            //  Call popupWindow()
+        WelcomeSceneController.popupWindow(true);                            //  Call popupWindow()
         
     }
    
