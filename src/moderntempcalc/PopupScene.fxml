@@ -7,6 +7,6 @@
 <AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="250.0" styleClass="button" stylesheets="@material-fx-v0_3.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="moderntempcalc.PopupController">
    <children>
       <Text fx:id="resultTextField" fill="#d3d3d3" layoutX="35.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="179.4599609375" />
-      <Button fx:id="thanksButton" layoutX="89.0" layoutY="85.0" mnemonicParsing="false" onAction="#closePopupScene" style="-fx-background-color: #999999;" text="Thanks!" />
+      <Button fx:id="thanksButton" layoutX="97.0" layoutY="85.0" mnemonicParsing="false" onAction="#closePopupScene" style="-fx-background-color: #999999;" text="   OK   " />
    </children>
 </AnchorPane>
