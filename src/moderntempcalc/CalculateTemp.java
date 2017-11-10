@@ -23,7 +23,7 @@ public class CalculateTemp {
                 userTempInput = Double.parseDouble(userInput);                  //  Parses user input to a double
             }
          catch (java.lang.NumberFormatException e) {                            //  If the user enters something that is not an integer
-               result = "Please enter numbers only.";
+                result = "Please enter numeric temperature.";
                 return;
          }
     
