@@ -27,6 +27,8 @@ public class Main extends Application {
         stage.getIcons().add(new Image(Main.class.getResourceAsStream("color_therm1.png")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
+       
         stage.show();
         
     }
