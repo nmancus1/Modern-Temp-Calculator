@@ -34,7 +34,7 @@ public class PopupController implements Initializable {
     //  Override to close popup window
     @FXML
     public void closePopupScene(ActionEvent event) throws IOException {
-        WelcomeSceneController.popupWindow(false);
+        WelcomeSceneController.showPopup(false);
         
     }
     
