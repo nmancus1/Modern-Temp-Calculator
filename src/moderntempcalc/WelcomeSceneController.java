@@ -13,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -39,8 +38,10 @@ public class WelcomeSceneController implements Initializable {
     private RadioButton convertToCbutton;       //  Button to designate Celsius conversion
     @FXML
     private RadioButton convertToFbutton;       //  Button to designate Fahrenheit conversion
-    
-    public static Stage popup = new Stage(StageStyle.UNDECORATED);              //  New stage object
+    @FXML
+    private static final Stage POP_UP = new Stage(StageStyle.UNDECORATED);      //  New stage instance
+
+    private char userTempType = 'C';                                            //  This character sets the temperature type to convert to - used in 
 
           
     @Override
@@ -48,34 +49,32 @@ public class WelcomeSceneController implements Initializable {
     }
     
         
-    public static char userTempType = 'C';                                      //  This character sets the temperature type to convert to - used in 
             
     
-    public static void popupWindow (Boolean start) throws IOException {          //  Popup window method
+    public static void showPopup (Boolean start) throws IOException {           //  Popup window method
         
-        //setup popup window and construct new FXMLloader object
+    //setup popup window and construct new FXMLloader object
         FXMLLoader loader = new FXMLLoader(WelcomeSceneController.class.getResource("PopupScene.fxml"));
         Parent root = loader.load();                                            //  Load FXML
-        popup.setScene(new Scene(root));                                        //  New scene object
-        popup.setTitle("tempCalc Results");                                     //  Set popup window title
+        POP_UP.setScene(new Scene(root));                                       //  New scene object
+        POP_UP.setTitle("tempCalc Results");                                    //  Set popup window title
         
-        
-        //  Popup window controls
+    //  Popup window controls
         if (start == true) {                                
-            popup.showAndWait();
+            POP_UP.showAndWait();
     }
         else {
-            popup.close();
+            POP_UP.close();
         }
     
 }
     
     @FXML
-    public void calculateAndStartPopup (ActionEvent event) throws IOException { //  Fire popup and calculations
+    public void calcButtonAction (ActionEvent event) throws IOException { //  Fire popup and calculations
         
         String userInput = userInputField.getText();                            //  Parse input into userInput String
         CalculateTemp.setResult(userInput,userTempType);                        //  Call CalculateTemp()
-        WelcomeSceneController.popupWindow(true);                            //  Call popupWindow()
+        WelcomeSceneController.showPopup(true);                                 //  Call popupWindow()
         
     }
    
